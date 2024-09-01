@@ -94,7 +94,7 @@ tile_map_data = PackedByteArray("AAAHABIAAAADAAMAAAAIABIAAAADAAMAAAAJABIAAAADAAM
 tile_set = SubResource("TileSet_khtxi")
 
 [node name="RedSlug" parent="." instance=ExtResource("2_p3ket")]
-position = Vector2(280, 210)
+position = Vector2(26, 287)
 
 [node name="Background" parent="." instance=ExtResource("3_u2prw")]
 PlayerPath = NodePath("../RedSlug")
@@ -109,5 +109,5 @@ libraries = {
 autoplay = "Moving"
 
 [node name="Killzone" parent="." instance=ExtResource("5_66vs4")]
-position = Vector2(324, 390)
-scale = Vector2(0.993752, 0.845316)
+position = Vector2(323, 443)
+scale = Vector2(0.97279, 0.132726)
