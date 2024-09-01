@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://yin34sb1r0ns"]
+
+[ext_resource type="Texture2D" uid="uid://ccejmg3tyoona" path="res://Assets/Objects/GreenCavePlatform.png" id="1_cfrs7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1vso"]
+size = Vector2(48, 32)
+
+[node name="Platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cfrs7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h1vso")

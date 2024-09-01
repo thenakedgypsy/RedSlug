@@ -44,6 +44,7 @@ public partial class RedSlug : CharacterBody2D
 		if (_direction != Vector2.Zero)
 		{
 			velocity.X = _direction.X * Speed;
+			GD.Print($"{_direction}");
 		}
 		else
 		{
@@ -63,21 +64,21 @@ public partial class RedSlug : CharacterBody2D
 	public void AdjustAnimation()
 	{
 		Vector2 currentPosition = Position;
-		if (_direction == Vector2.Zero)
-		{
-			_slugSprite.Animation = "idle";
-		}
-		if(currentPosition.X > _previousPos.X)
-		{
-			_slugSprite.Animation = "moveR";
-		}
-		if(currentPosition.X < _previousPos.X)
-		{
-			_slugSprite.Animation = "moveL";
-		}
 		if(currentPosition.Y != _previousPos.Y)
 		{
 			_slugSprite.Animation = "falling";
+		}
+		else if(_direction.X == 1)
+		{
+			_slugSprite.Animation = "moveR";
+		}
+		else if(_direction.X == - 1)
+		{
+			_slugSprite.Animation = "moveL";
+		}
+		else
+		{
+			_slugSprite.Animation = "idle";
 		}
 		_previousPos = Position;
 
