@@ -5,7 +5,7 @@ public partial class MainCamera : Camera2D
 {
 	private float _smoothing = 0.05f;
 	private float _verticalOffset = 110f;
-	private float _smoothingThreshold = 10f;
+	private float _smoothingThreshold = 2f;
 	private Node _player;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
