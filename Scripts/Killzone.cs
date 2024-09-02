@@ -19,6 +19,5 @@ public partial class Killzone : Area2D
 		{
 			GetTree().ReloadCurrentScene();
 		}
-
 	}
 }

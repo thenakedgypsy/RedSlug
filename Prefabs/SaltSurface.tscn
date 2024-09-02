@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://de4r6e1yywofq"]
+
+[ext_resource type="Script" path="res://Scripts/SaltSurface.cs" id="1_063mp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8xjg"]
+size = Vector2(20, 2)
+
+[node name="SaltSurface" type="Area2D"]
+script = ExtResource("1_063mp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u8xjg")
+
+[connection signal="body_entered" from="." to="." method="TouchingSalt"]
