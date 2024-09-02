@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfdp2ql2v2a0"]
+
+[ext_resource type="Script" path="res://Scripts/MainCamera.cs" id="1_cpx46"]
+
+[node name="MainCamera" type="Camera2D"]
+position = Vector2(0, -83)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
+script = ExtResource("1_cpx46")

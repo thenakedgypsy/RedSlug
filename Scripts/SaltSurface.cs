@@ -3,17 +3,20 @@ using System;
 
 public partial class SaltSurface : Area2D
 {
+	private bool _connectedToSlug;
+
 	[Signal]
 	public delegate void TouchingSaltSurfaceEventHandler();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		ConnectToPlayer();
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		ConnectToSlug();
 	}
 
 	public void TouchingSalt(Node2D body)
@@ -25,25 +28,27 @@ public partial class SaltSurface : Area2D
 		}
 	}
 
-	public void ConnectToPlayer()
+	public void ConnectToSlug()
 	{
-		var playerGroup = GetTree().GetNodesInGroup("Player");
-		if(playerGroup.Count > 0)
-		{
-			var player = playerGroup[0] as RedSlug;//potentially needs to iterate through
-			if(player != null)						//if we are changing slug
-			{
-				GD.Print("Linking slug to salts");
-				TouchingSaltSurface += player.Salt;				
-			}
-			else
-			{
-				GD.Print("Player group item found but is not type RedSlug");
-			}
-		}
-		else
-		{
-			GD.Print("Player not found");
-		}
+	    if (_connectedToSlug)
+	        return;
+
+	    var playerNode = GetTree().Root.FindChild("Player", true, false);
+	    if (playerNode == null)
+	    {
+	        GD.Print("Player node not found in the scene tree");
+	        return;
+	    }
+
+	    if (playerNode is RedSlug slug)
+	    {
+	        GD.Print("Linking slug to salts");
+	        TouchingSaltSurface += slug.Salt;
+	        _connectedToSlug = true;
+	    }
+	    else
+	    {
+	       // GD.Print("Waiting for player to be RedSlug");
+	    }
 	}
 }

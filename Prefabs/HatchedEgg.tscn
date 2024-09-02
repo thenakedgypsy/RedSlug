@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1wc6w1g8ncmp"]
+
+[ext_resource type="Texture2D" uid="uid://cj1idxpa4fdes" path="res://Assets/Characters/Egg-sheet.png" id="2_7bq8m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b48jd"]
+atlas = ExtResource("2_7bq8m")
+region = Rect2(2175, 0, 75, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nwk5"]
+atlas = ExtResource("2_7bq8m")
+region = Rect2(0, 0, 75, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87jsl"]
+atlas = ExtResource("2_7bq8m")
+region = Rect2(75, 0, 75, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa1p0"]
+atlas = ExtResource("2_7bq8m")
+region = Rect2(150, 0, 75, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6pm03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b48jd")
+}],
+"loop": false,
+"name": &"hatch",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nwk5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"melt",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"meltL",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"meltR",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87jsl")
+}],
+"loop": true,
+"name": &"moveL",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa1p0")
+}],
+"loop": true,
+"name": &"moveR",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mmw81"]
+radius = 14.0556
+
+[node name="Egg" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(0, -30)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(0.998733, 0.992238)
+sprite_frames = SubResource("SpriteFrames_6pm03")
+animation = &"hatch"
+autoplay = "hatch"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-14, -2)
+scale = Vector2(-1.78166, -1.22357)
+shape = SubResource("CircleShape2D_mmw81")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -83)
+position_smoothing_enabled = true
+position_smoothing_speed = 100.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="AnimationFinished"]

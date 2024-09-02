@@ -23,6 +23,10 @@ public partial class StateManager : Node
 		{
 			_state = "Gameplay";
 		}
+		else if(state == "Evolution")
+		{
+			_state = "Evolution";
+		}
 		else if(state == "Cinematic")
 		{
 			_state = "Cinematic";
