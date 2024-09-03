@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bnouw02rm474g"]
 
 [ext_resource type="Script" path="res://Scripts/Background.cs" id="1_7hxlp"]
-[ext_resource type="Texture2D" uid="uid://cmyv4xfnnp4vk" path="res://Assets/BackgroundLayers/GreenCaveBack.png" id="2_eoxkq"]
+[ext_resource type="Texture2D" uid="uid://chvvy7ua4jahb" path="res://Assets/BackgroundLayers/GreenCaveBack2.png" id="2_sjkik"]
 [ext_resource type="Texture2D" uid="uid://baiafqf36u63k" path="res://Assets/BackgroundLayers/GreenCaveMid.png" id="3_ckd6v"]
-[ext_resource type="Texture2D" uid="uid://dlwuglwuaeayw" path="res://Assets/BackgroundLayers/GreenCaveFore.png" id="4_0b555"]
+[ext_resource type="Texture2D" uid="uid://d0xg7nk71pj02" path="res://Assets/BackgroundLayers/GreenCaveFore2.png" id="4_d6cxf"]
 
 [node name="Background" type="ParallaxBackground"]
 script = ExtResource("1_7hxlp")
@@ -12,15 +12,16 @@ script = ExtResource("1_7hxlp")
 motion_scale = Vector2(0.1, 0.1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Back"]
-position = Vector2(-1, 2)
-texture = ExtResource("2_eoxkq")
+position = Vector2(-15, -12)
+texture = ExtResource("2_sjkik")
 centered = false
 
 [node name="Mid" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Mid"]
-position = Vector2(0, -1)
+position = Vector2(1, -17)
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("3_ckd6v")
 centered = false
 
@@ -29,6 +30,6 @@ position = Vector2(-4, 12)
 motion_scale = Vector2(0.8, 0.8)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fore"]
-position = Vector2(1, 5)
-texture = ExtResource("4_0b555")
+position = Vector2(-5, -28)
+texture = ExtResource("4_d6cxf")
 centered = false

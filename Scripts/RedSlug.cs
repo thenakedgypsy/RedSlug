@@ -6,16 +6,17 @@ public partial class RedSlug : Player
 {
     public override void _Ready()
     {
+		
 		PlayerForm = "RedSlug";
 		this.Speed = 80.0f;
 		this.JumpVelocity = -200.0f;
         base._Ready();
-		base.Initialize();
     }
     
 	public void Salt()
 	{
-		GD.Print("SALT");
+		base.Death();
+		GD.Print("SALT + SLUG = DED");
 		IsDying = true;
 		if(IsFalling)
 		{
@@ -33,6 +34,11 @@ public partial class RedSlug : Player
 		{
 			Sprite.Animation = "melt";
 		}		
+	}
+
+	public override void Death()
+	{		
+		Salt();
 	}
 
 	public void AnimationFinished()

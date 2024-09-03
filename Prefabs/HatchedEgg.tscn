@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1wc6w1g8ncmp"]
+[gd_scene load_steps=9 format=3 uid="uid://d1wc6w1g8ncmp"]
 
+[ext_resource type="Texture2D" uid="uid://oyxgi010nm0a" path="res://Assets/Characters/EggHatch.png" id="1_3fw12"]
 [ext_resource type="Texture2D" uid="uid://cj1idxpa4fdes" path="res://Assets/Characters/Egg-sheet.png" id="2_7bq8m"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b48jd"]
-atlas = ExtResource("2_7bq8m")
-region = Rect2(2175, 0, 75, 50)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc0mh"]
+atlas = ExtResource("1_3fw12")
+region = Rect2(1624, 0, 56, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7nwk5"]
 atlas = ExtResource("2_7bq8m")
@@ -22,7 +23,7 @@ region = Rect2(150, 0, 75, 50)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b48jd")
+"texture": SubResource("AtlasTexture_vc0mh")
 }],
 "loop": false,
 "name": &"hatch",
@@ -69,20 +70,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xk20"]
-size = Vector2(26.3799, 28.6048)
+size = Vector2(20.4865, 22.4752)
 
-[node name="Egg" type="CharacterBody2D" groups=["Player"]]
-position = Vector2(0, -30)
+[node name="HatchedEgg" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(10, -11)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(-1, -8)
 scale = Vector2(0.998733, 0.992238)
 sprite_frames = SubResource("SpriteFrames_6pm03")
 animation = &"hatch"
 autoplay = "hatch"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-14.5, -0.500002)
+position = Vector2(-10, -3)
 rotation = -3.14159
 scale = Vector2(1.78166, 1.22357)
 shape = SubResource("RectangleShape2D_8xk20")

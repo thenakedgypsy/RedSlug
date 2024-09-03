@@ -20,7 +20,6 @@ public partial class Egg : Player
 		this.Speed = 0f;
 		this.JumpVelocity = 0f;
         base._Ready();
-		base.Initialize();
     }
 
     public override void _Process(double delta)
@@ -81,7 +80,7 @@ public partial class Egg : Player
 		GetParent().AddChild(slugInstance);
 		if (slugInstance is Node2D node2D)
         {
-                node2D.Position = new Vector2(31, 291);
+                node2D.Position = new Vector2(12, 280);
 				Name = "oldPlayer";
 				node2D.Name = "Player";
 				
@@ -92,7 +91,7 @@ public partial class Egg : Player
 		GetParent().AddChild(oldEgg);
 		if (oldEgg is Node2D eggNode)
         {
-                eggNode.Position = new Vector2(9, 275);
+                eggNode.Position = new Vector2(13, 280);
         }
 		StateManager.Instance.SetState("Gameplay");
 		QueueFree();

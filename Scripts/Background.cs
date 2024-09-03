@@ -44,7 +44,8 @@ public partial class Background : ParallaxBackground
 	public void SetupLayerMirroring(ParallaxLayer layer)
 	{
 		var sprite = layer.GetNode<Sprite2D>("Sprite2D");
-		layer.MotionMirroring = sprite.Texture.GetSize() * sprite.Scale;
+		Vector2 size = sprite.Texture.GetSize() * sprite.Scale;
+		layer.MotionMirroring = new Vector2(size.X -1, size.Y);
 	}
 
 	public void GetPlayer()
